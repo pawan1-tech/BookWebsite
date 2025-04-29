@@ -1,21 +1,29 @@
-import { View, Text, Image, TextInput, TouchableOpacity, ActivityIndicator, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text, Image, TextInput, TouchableOpacity, ActivityIndicator, KeyboardAvoidingView, Platform, Alert } from 'react-native';
 import { Link } from "expo-router";
 import style from "../../assets/styles/signup.styles";
 import { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import COLORS from '../../constants/colors';
 import { useRouter } from 'expo-router';
+import { useAuthStore } from '../../store/authStore';
 
 export default function SignUp() {
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const { user, isLoading, register,  } = useAuthStore();
+
+
 
   const router = useRouter();
 
-  const handleSingUp = () => {};
+  const handleSingUp = async () => {
+    const result = await register( email, username, password);
+    if (!result.success) {
+      Alert.alert("Error",result.error);
+    }
+  };
 
   return (
     <KeyboardAvoidingView
@@ -33,7 +41,7 @@ export default function SignUp() {
           <View style={style.formContainer}>
             {/* user Input */}
             <View style={style.inputGroup}>
-              <Text style={style.label}>Email</Text>
+              <Text style={style.label}>Username</Text>
               <View style={style.inputContainer}>
                 <Ionicons 
                   name="person-outline" 
@@ -141,3 +149,5 @@ export default function SignUp() {
     </KeyboardAvoidingView>
   )
 }
+
+// fkj pawansah@gmail.com
