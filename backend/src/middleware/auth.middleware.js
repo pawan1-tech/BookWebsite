@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { User } from '../models/user.model.js';
+import User from '../models/User.js';
 
 
 // const response = await fetch('http://api.locolhost:3000/api/book', {
@@ -7,7 +7,7 @@ import { User } from '../models/user.model.js';
 //     body: JSON.stringify({
 //         title: "Book Title",
 //         caption: "Book Caption",
-//         rating: 5,
+//         rating: 
 //         image: "http://example.com/image.jpg"
 //     }),
 //     headers: {
