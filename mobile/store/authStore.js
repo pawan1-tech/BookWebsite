@@ -10,7 +10,7 @@ export const useAuthStore = create((set) => ({
         set({ isLoading: true });
         try {
             console.log('Registering user...');
-            const response = await fetch("http://localhost:3001/api/auth/register", {               
+            const response = await fetch("https://bookwebsite-73kq.onrender.com/api/auth/register", {               
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

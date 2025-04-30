@@ -1,5 +1,4 @@
 import { View, Text, Image, TextInput, TouchableOpacity, ActivityIndicator, KeyboardAvoidingView, Platform, Alert } from 'react-native';
-import { Link } from "expo-router";
 import style from "../../assets/styles/signup.styles";
 import { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
